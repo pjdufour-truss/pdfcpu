@@ -3,7 +3,6 @@ package api
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -15,6 +14,8 @@ import (
 	"github.com/hhrutter/pdfcpu/pkg/pdfcpu"
 
 	"github.com/pkg/errors"
+
+	"github.com/spf13/afero"
 )
 
 var (
@@ -616,7 +617,7 @@ func doExtractImages(ctx *pdfcpu.PDFContext, selectedPages pdfcpu.IntSet) error 
 					continue
 				}
 
-				err = ioutil.WriteFile(fileName, io.Data(), os.ModePerm)
+				err = afero.WriteFile(ctx.FileSystem, fileName, io.Data(), os.ModePerm)
 				if err != nil {
 					return err
 				}
@@ -713,7 +714,7 @@ func doExtractFonts(ctx *pdfcpu.PDFContext, selectedPages pdfcpu.IntSet) error {
 
 				fileName := fmt.Sprintf("%s/%s_%d_%d.%s", ctx.Write.DirName, fo.ResourceNames[0], p, objNr, fo.Extension)
 
-				err = ioutil.WriteFile(fileName, fo.Data, os.ModePerm)
+				err = afero.WriteFile(ctx.FileSystem, fileName, fo.Data, os.ModePerm)
 				if err != nil {
 					return err
 				}
@@ -909,7 +910,7 @@ func doExtractContent(ctx *pdfcpu.PDFContext, selectedPages pdfcpu.IntSet) error
 
 				fileName := fmt.Sprintf("%s/%d_%d.txt", ctx.Write.DirName, p, objNr)
 
-				err = ioutil.WriteFile(fileName, b, os.ModePerm)
+				err = afero.WriteFile(ctx.FileSystem, fileName, b, os.ModePerm)
 				if err != nil {
 					return err
 				}
