@@ -3,8 +3,8 @@ package pdfcpu
 import (
 	"fmt"
 
-	"github.com/hhrutter/pdfcpu/pkg/filter"
-	"github.com/hhrutter/pdfcpu/pkg/log"
+	"github.com/pjdufour-truss/pdfcpu/pkg/filter"
+	"github.com/pjdufour-truss/pdfcpu/pkg/log"
 	"github.com/pkg/errors"
 )
 

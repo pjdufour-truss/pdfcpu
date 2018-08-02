@@ -9,7 +9,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hhrutter/pdfcpu/pkg/compress/lzw"
+	"github.com/pjdufour-truss/pdfcpu/pkg/compress/lzw"
 )
 
 func compareToGolden(t *testing.T, b []byte, fileName string) {
