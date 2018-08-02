@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hhrutter/pdfcpu/pkg/log"
-	"github.com/hhrutter/pdfcpu/pkg/pdfcpu"
+	"github.com/pjdufour-truss/pdfcpu/pkg/log"
+	"github.com/pjdufour-truss/pdfcpu/pkg/pdfcpu"
 
 	"github.com/pkg/errors"
 
